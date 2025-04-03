@@ -6,7 +6,7 @@
 | Device | Description | Datasheet | Price per Unit | Link |
 |----------------------|--------------------------------------|-----------|-----------|------|
 | ADAFRUIT_LEDCHIP-LED0603 | LED | [datasheet](https://ro.mouser.com/datasheet/2/423/LSM0603412V-1379745.pdf) | 1,50 RON | [link](https://ro.mouser.com/ProductDetail/VCC/LSM0603412V?qs=sGAEpiMZZMt82OzCyDsLFG1ehM2%252BdxqbAopHlSxILTc%3D) |
-| SJ | SMD solder JUMPER | [datasheet](https://www.farnell.com/datasheets/2813407.pdf) | 0,009 RON | [link](https://ro.farnell.com/panasonic/erj3gey0r00v/res-0r0-0-1w-0603-thick-film/dp/2059527) |
+| SJ | SMD solder JUMPER | [datasheet](https://www.farnell.com/datasheets/2813407.pdf) | 0,01 RON | [link](https://ro.farnell.com/panasonic/erj3gey0r00v/res-0r0-0-1w-0603-thick-film/dp/2059527) |
 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [datasheet](https://www.vishay.com/doc?28700) | 0,941 RON | [link](https://ro.mouser.com/ProductDetail/Vishay-Beyschlag/MCS04020D9101BE000?qs=sGAEpiMZZMvdGkrng054twKDKoBh%252BscnK%2FuqkNk9X%252BqO%2Fz5%2F0u93Ow%3D%3D) |
 | 112A-TAAR-R03_ATTEND | Micro SD Card Socket, Push-Push Type, Top Mount, SMT, H=1.83mm, 10u | [datasheet](https://www.attend.com.tw/data/download/file/112A-TAAR-R03.pdf) | 1,54 RON | [link](https://www.soselectronic.com/ro-ro/products/attend/112a-taar-r03-116052) |
 | EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [datasheet](https://ro.mouser.com/datasheet/2/40/Accu_P-3077555.pdf) | 5,74 RON | [link](https://ro.mouser.com/ProductDetail/KYOCERA-AVX/04025J0R5ZBSTR?qs=k4kUdCzLgS7v2DzbDWDPRw%3D%3D) |
