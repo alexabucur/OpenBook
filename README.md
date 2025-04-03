@@ -4,7 +4,7 @@
 
 ## Bill of Materials
 | Device | Description | Datasheet | Price per Unit | Link |
-|------------------------------|--------------------------------------|-----------|-----------|------|
+|----------------------|--------------------------------------|-----------|-----------|------|
 | ADAFRUIT_LEDCHIP-LED0603 | LED | [datasheet](https://ro.mouser.com/datasheet/2/423/LSM0603412V-1379745.pdf) | 1,50 RON | [link](https://ro.mouser.com/ProductDetail/VCC/LSM0603412V?qs=sGAEpiMZZMt82OzCyDsLFG1ehM2%252BdxqbAopHlSxILTc%3D) |
 | SJ | SMD solder JUMPER | [datasheet](https://www.farnell.com/datasheets/2813407.pdf) | 0,009 RON | [link](https://ro.farnell.com/panasonic/erj3gey0r00v/res-0r0-0-1w-0603-thick-film/dp/2059527) |
 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [datasheet](https://www.vishay.com/doc?28700) | 0,941 RON | [link](https://ro.mouser.com/ProductDetail/Vishay-Beyschlag/MCS04020D9101BE000?qs=sGAEpiMZZMvdGkrng054twKDKoBh%252BscnK%2FuqkNk9X%252BqO%2Fz5%2F0u93Ow%3D%3D) |
