@@ -32,30 +32,37 @@
 
 ## Functionalitate hardware
 Componentele principale ale circuitului sunt
-> USB C Connector + ESD Protection
->> destinat alimentarii E-Book, se conecteaza prin interfata USB
-> SD Card
->> Secure Digital Card este folosit ca si mediu de stocare. El lucreaza la 3.3V si se conecteaza cu microcontrollerul prin interfata SPI.
-> E-Paper Display, impreuna cu modulele aferente - E-Paper Drive Circuit, E-Paper Display Header, EPD Power
->> se conecteaza tot prin interfata SPI
-> Environmental Sensor BME688
->> prin interfata I2C
+
+- USB C Connector + ESD Protection
+> destinat alimentarii E-Book, se conecteaza prin interfata USB
+> 
+- SD Card
+> 
+> Secure Digital Card este folosit ca si mediu de stocare; lucreaza la 3.3V si se conecteaza cu microcontrollerul prin interfata SPI.
+> 
+- E-Paper Display, impreuna cu modulele aferente - E-Paper Drive Circuit, E-Paper Display Header, EPD Power
+> se conecteaza tot prin interfata SPI
+> 
+- Environmental Sensor BME688
+> prin interfata I2C
 ## Microcontroller - ESP32-C6
 Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, care este un modul preasamblat
 > Placa ESP-WROOM-32 dispune de o varietate de interfete pentru conectarea cu alte componente si senzori, inclusiv pini de I/O, SPI, I2C si UART. Aceastea faciliteaza integrarea si extind gama de aplicatii posibile. Placa foloseste WiFi 6 2.4 GHz, are integrat Bluetooth 5 si antena.
-> ESP32-C6 se leaga de cele mai importante module ale circuitului prin intermediul pinilor sai
 >> <img width="600" alt="ESP32_C6" src="https://github.com/user-attachments/assets/733b906e-1500-4ca2-ba0b-447412d6c4e2" />
+> ESP32-C6 se leaga de cele mai importante module ale circuitului prin intermediul pinilor sai:
 > - **Alimentare si reset**
 >> **3V3** aigura alimentrea modulului, **GND** legatura la masa, **EN** trebuie sa fie pe pozitia _HIGH_ pentru ca modulul sa functioneze (EN va fi controlat de catre butonul RESET)
 > - **USB C Connector**
->> deoarece ESP32-C6 are USB nativ, conexiunea se realizeaza direct prin liniile de date **USB_D+** si **USB_D-**, la pinii **IO13** si **IO14** ai modulului; nu mai este deci nevoie de un convertor serial extern
-> - **SD Card **
->> pentru a comunica cu dispozitive rapide precum SD Card se foloseste interfata SPI(Serial Peripheral Interface), folosind pinii **GPIO27(MISO)** - pentru transfer de la card la ESP, **GPIO10(MOSI)** - pentru transfer invers, **GPIO7(SCK)** -semnalul de ceas care asigura sincronizarea, respectiv **GPIO5(SS_SD)** - chip select
-> -
-
+>> deoarece ESP32-C6 are USB nativ, conexiunea se realizeaza direct prin liniile de date **USB_D+** si **USB_D-**, la pinii **GPIO13** si **GPIO14** ai modulului; nu mai este deci nevoie de un convertor serial extern
+> - **SD Card**
+>> pentru a comunica cu dispozitive rapide precum SD Card se foloseste interfata SPI(Serial Peripheral Interface), folosind pinii **GPIO27(MISO)** - pentru transfer de la card la ESP, **GPIO7(MOSI)** - pentru transfer invers, **GPIO6(SCK)** -semnalul de ceas care asigura sincronizarea, respectiv **GPIO4(SS_SD)** - chip select
+> - **E-Paper Display**
+>> pentru conexiunea si controlul ecranului dispozitivului se folosesc pinii **GPIO11(EPd_CS)** - Chip Select pentru display-ul EPD, **GPIO5(EPD_DC)** - pentru controlul display-ului, **GPIO21(EPD_RST)** - pentru resetarea display-ului, respectiv **GPIO26(EPD_BUSY)**
+> - **Environmental Sensor BME688**
+>> avand in vedere ca fse face comunicatia cu senzorul prin intermediul protocolului I2C, pentru stabilirea legaturii se vor folosi pinii **GPIO19(SDA)**, **GPIO20(SCL)** si **GPIO17(I2C_PW)** de pe microcontroller
 
 ## Errors
-La editarea PCB-ului in Fusion 360 am intampinat urmatoarele erori
+La editarea PCB-ului in Fusion 360 am intampinat urmatoarele erori:
 <img width="600" alt="errors" src="https://github.com/user-attachments/assets/13f76178-e6c5-4af7-bdd7-0c7c476f3f09" />
 Erorile au aparut din cauza dimensiunii gaurilor din mufa USB, asa ca le-am aprobat pe amandoua.
 
