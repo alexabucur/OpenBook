@@ -85,7 +85,7 @@ Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, ca
 > - **E-Paper Display**
 >> pentru conexiunea si controlul ecranului dispozitivului se folosesc pinii **GPIO11(EPD_CS)** - Chip Select pentru display-ul EPD, **GPIO5(EPD_DC)** - pentru controlul display-ului, **GPIO21(EPD_RST)** - pentru resetarea display-ului, respectiv **GPIO26(EPD_BUSY)**
 > - **Environmental Sensor BME688**
->> avand in vedere ca fse face comunicatia cu senzorul prin intermediul protocolului I2C, pentru stabilirea legaturii se vor folosi pinii **GPIO19(SDA)**, **GPIO20(SCL)** si **GPIO17(I2C_PW)** de pe microcontroller
+>> avand in vedere ca se face comunicatia cu senzorul prin intermediul protocolului I2C, pentru stabilirea legaturii se vor folosi pinii **GPIO19(SDA)**, **GPIO20(SCL)** si **GPIO17(I2C_PW)** de pe microcontroller
 > - **UART(Serial Communication)**
 >> ESP32-C6 are si interfete seriale, utile pentru debugging sau conexiuni cu alte dispozitive; pinii aferenti comunicarii UART sunt **TXD0** -pentru transmisia datelor respectiv **RXD0** - pentru receptie de date
 > - **Restul pinilor**
