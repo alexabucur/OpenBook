@@ -48,14 +48,28 @@ Componentele principale ale circuitului sunt:
  
 - Environmental Sensor BME688
   
- > este un senzor de mediu ce poate masura temperatura, umiditatea, presiunea atmosferica si calitatea aerului, care functioneaza la 3,3V si se conecteaza prin interfata I2C
+ > este un senzor de mediu ce poate masura temperatura, umiditatea, presiunea atmosferica si calitatea aerului, care functioneaza la 3.3V si se conecteaza prin interfata I2C
 
 - RTC Module DS3231SN
   
  > este un modul Real-Time Clock care are rolul de a pastra data si ora curenta atunci cand microcontroller-ul este oprit; poate functiona pe baterie, si are un cristal de 32KHz integrat; se conecteaza la ESP32-C6 prin I2C, folosind pinii SCL si SDA
 
 - External NOR Flash 64MB
+  
 > extinde memoria microcontroller-ului, aici se stocheaza date suplimentare, se poate face si o stocare temporara; foloseste interfata SPI
+
+-	LDO Voltage Regulator
+  
+> este un stabilizator de tensiune liniar, care asigura tensiunea de iesire constanta la valoarea de 3.3V pentru microcontroller; are un consum energetic foarte mic, ceea ce il face ideal pentru dispozitive alimentate pe baza de baterie, precum cel de fata
+
+- Voltage Supervisor
+  
+> folosit pentru monitorizeaza nivelului tensiunii, si pentru a asigura ca sistemul nu poate porni atunci cand avem o tensiune instabila sau mult prea mica
+
+- Qwiic/Stemma QT
+  
+> simplifica atasarea senzorilor si perifericelor la microcontroller, facand posibila conectarea mai multor dispozitive in lant, fara a fi nevoie de fire distincte pentru fiecare semnal; functioneaza pe baza protocolului I2C
+
 
 ## Microcontroller - ESP32-C6
 Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, care este un modul preasamblat
@@ -76,8 +90,11 @@ Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, ca
 >> ESP32-C6 are si interfete seriale, utile pentru debugging sau conexiuni cu alte dispozitive; pinii aferenti comunicarii UART sunt **TXD0** -pentru transmisia datelor respectiv **RXD0** - pentru receptie de date
 > - **Restul pinilor**
 >> - **FLASH_CS** este un pin Chip Select pentru selectarea chipului flash extern (pentru comunicarea SPI cu External NOR Flash)
->> - **IO/BOOT** folosit pentru a intra in boot mode
+>> - **IO/BOOT** folosit pentru a intra in boot mode – legatura cu butonul de _boot_
 >> - **RTC_PWM** pentru semnale Pulse Width Modulation trimise catre Real Time Clock
+>> - **RTC_RST** pentru resetarea ceasului
+>> - **INT_RTC** destinat semnalelor de intrerupere de la modulul RTC, de exemplu in cazul iesirii din moduri de functionare (sleep), pentru executarea unor sarcini periodice, cum ar fi un refresh al display-ului etc.
+
 ## Errors
 La editarea PCB-ului in Fusion 360 am intampinat urmatoarele erori:
 <img width="600" alt="errors" src="https://github.com/user-attachments/assets/13f76178-e6c5-4af7-bdd7-0c7c476f3f09" />
