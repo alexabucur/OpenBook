@@ -1,6 +1,6 @@
 # OpenBook
 ## Block Diagram
-<img width="518" alt="DiagramaBloc" src="https://github.com/user-attachments/assets/0147a616-2c00-4257-9101-920ae6a2e1f6" />
+<img width="1000" alt="DiagramaBloc" src="https://github.com/user-attachments/assets/0147a616-2c00-4257-9101-920ae6a2e1f6" />
 
 ## Bill of Materials
 | Device | Description | Datasheet | Price per Unit | Link |
@@ -16,7 +16,7 @@
 | CPH3225A | Cap 0.011F 3.3V 1210 Flat | [datasheet](https://ro.mouser.com/datasheet/2/360/Seiko_Instruments_MicroBattery_E_20230330_2024Jan_-3561061.pdf) | 11,04 RON | [link](https://ro.mouser.com/ProductDetail/Seiko-Semiconductors/CPH3225A?qs=3etwrb1wR%252BhUOph6lAO7eg%3D%3D) | 
 | DS3231SN# | Real Time Clock Serial 16-Pin SOIC W T/R | [datasheet](https://ro.mouser.com/datasheet/2/609/DS3231-3421123.pdf) | 73,80 RON | [link](https://ro.mouser.com/ProductDetail/Analog-Devices-Maxim-Integrated/DS3231SN?qs=1eQvB6Dk1vhUlr8%2FOrV0Fw%3D%3D) |
 | ESP32-C6-WROOM-1-N8 | | [datasheet](https://ro.mouser.com/datasheet/2/891/Espressif_ESP32_C6_WROOM_1__Datasheet_V0_1_PRELIMI-3239987.pdf) | 14,70 RON | [link](https://ro.mouser.com/ProductDetail/Espressif-Systems/ESP32-C6-WROOM-1-N8?qs=8Wlm6%252BaMh8ST02Gmwp74cw%3D%3D) |
-| ESP32_WROVER_AVX---SD0805S020S1R0_AVX_SD0805S020S1R0_0_0AVX_SD0805S020S1R0_0_0 | Schottky Barrier Rectifier Diode | [datasheet](http://datasheets.avx.com/schottky.pdf) | 1,46 RON | [link](https://ro.mouser.com/ProductDetail/KYOCERA-AVX/SD0805S020S1R0?qs=jCA%252BPfw4LHbpkAoSnwrdjw%3D%3D) |
+| ESP32_WROVER_AVX---SD0805S020S1R0_AVX_ SD0805S020S1R0_0_0AVX_SD0805S020S1R0_0_0 | Schottky Barrier Rectifier Diode | [datasheet](http://datasheets.avx.com/schottky.pdf) | 1,46 RON | [link](https://ro.mouser.com/ProductDetail/KYOCERA-AVX/SD0805S020S1R0?qs=jCA%252BPfw4LHbpkAoSnwrdjw%3D%3D) |
 | ESP32_WROVER_BME680_BME680 | Integrated Environmental Unit | [datasheet](https://ro.mouser.com/datasheet/2/783/BST_BME680_DS001-1509608.pdf) | 40,69 RON | [link](https://ro.mouser.com/ProductDetail/Bosch-Sensortec/BME680?qs=v271MhAjFHjo0yA%2FC4OnDQ%3D%3D) |
 | ESP32_WROVER_SPARKFUN-IC-POWER_MCP73831 | MCP73831T Li-Ion, Li-Pol Controller | [datasheet](https://ro.mouser.com/datasheet/2/268/MCP73831_Family_Data_Sheet_DS20001984H-3441711.pdf) | 3,57 RON | [link](https://ro.mouser.com/ProductDetail/Microchip-Technology/MCP73831T-4ADI-OT?qs=hH%252BOa0VZEiBTiqxSV9eepQ%3D%3D) |
 | FH34SRJ-24S-0.5SH_99_ |  (0.50mm) Surface Mount, Right Angle | [datasheet](https://ro.mouser.com/datasheet/2/185/FH34SRJ_24S_0_5SH_99__CL0580_1255_6_99_2DDrawing_0-1615044.pdf) | 12,87 RON | [link](https://ro.mouser.com/ProductDetail/Hirose-Connector/FH34SRJ-24S-0.5SH99?qs=vcbW%252B4%252BSTIpKBl5ap9J8Fw%3D%3D) |
@@ -29,5 +29,35 @@
 | USBLC6-2SC6Y | Low Cap. ESD Protection Auto SOT-23-6 STMicroelectronics  | [datasheet](https://ro.mouser.com/datasheet/2/389/usblc6_2sc6y-1852505.pdf) | 2,16 RON | [link](https://ro.mouser.com/ProductDetail/STMicroelectronics/USBLC6-2SC6Y?qs=gNDSiZmRJS%2FOgDexvXkdow%3D%3D) |
 | W25Q512JVEIQ |  | [datasheet](https://ro.mouser.com/datasheet/2/949/Winbond_W25Q512JV_Datasheet-3240039.pdf) | 28,91 RON | [link](https://ro.mouser.com/ProductDetail/Winbond/W25Q512JVEIQ?qs=l7cgNqFNU1jw6svr3at6tA%3D%3D) |
 | XC6220A331MR-G | LDO Voltage Regulators | [datasheet](https://ro.mouser.com/datasheet/2/760/xc6220-3371556.pdf) | 7,23 RON | [link](https://ro.mouser.com/ProductDetail/Torex-Semiconductor/XC6220A331MR-G?qs=AsjdqWjXhJ8ZSWznL1J0gg%3D%3D) |
+
+## Functionalitate hardware
+Componentele principale ale circuitului sunt
+> USB C Connector + ESD Protection
+>> destinat alimentarii E-Book, se conecteaza prin interfata USB
+> SD Card
+>> Secure Digital Card este folosit ca si mediu de stocare. El lucreaza la 3.3V si se conecteaza cu microcontrollerul prin interfata SPI.
+> E-Paper Display, impreuna cu modulele aferente - E-Paper Drive Circuit, E-Paper Display Header, EPD Power
+>> se conecteaza tot prin interfata SPI
+> Environmental Sensor BME688
+>> prin interfata I2C
+## Microcontroller - ESP32-C6
+Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, care este un modul preasamblat
+> Placa ESP-WROOM-32 dispune de o varietate de interfete pentru conectarea cu alte componente si senzori, inclusiv pini de I/O, SPI, I2C si UART. Aceastea faciliteaza integrarea si extind gama de aplicatii posibile. Placa foloseste WiFi 6 2.4 GHz, are integrat Bluetooth 5 si antena.
+> ESP32-C6 se leaga de cele mai importante module ale circuitului prin intermediul pinilor sai
+>> <img width="600" alt="ESP32_C6" src="https://github.com/user-attachments/assets/733b906e-1500-4ca2-ba0b-447412d6c4e2" />
+> - **Alimentare si reset**
+>> **3V3** aigura alimentrea modulului, **GND** legatura la masa, **EN** trebuie sa fie pe pozitia _HIGH_ pentru ca modulul sa functioneze (EN va fi controlat de catre butonul RESET)
+> - **USB C Connector**
+>> deoarece ESP32-C6 are USB nativ, conexiunea se realizeaza direct prin liniile de date **USB_D+** si **USB_D-**, la pinii **IO13** si **IO14** ai modulului; nu mai este deci nevoie de un convertor serial extern
+> - **SD Card **
+>> pentru a comunica cu dispozitive rapide precum SD Card se foloseste interfata SPI(Serial Peripheral Interface), folosind pinii **GPIO27(MISO)** - pentru transfer de la card la ESP, **GPIO10(MOSI)** - pentru transfer invers, **GPIO7(SCK)** -semnalul de ceas care asigura sincronizarea, respectiv **GPIO5(SS_SD)** - chip select
+> -
+
+
+## Errors
+La editarea PCB-ului in Fusion 360 am intampinat urmatoarele erori
+<img width="600" alt="errors" src="https://github.com/user-attachments/assets/13f76178-e6c5-4af7-bdd7-0c7c476f3f09" />
+Erorile au aparut din cauza dimensiunii gaurilor din mufa USB, asa ca le-am aprobat pe amandoua.
+
 
 
