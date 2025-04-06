@@ -51,7 +51,7 @@ Componentele principale ale circuitului sunt:
 - E-Paper Display, impreuna cu modulele aferente - E-Paper Drive Circuit, E-Paper Display Header, EPD Power
   
 > EPD Header se conecteaza prin interfata SPI la microcontroller, si realizeaza legatura intre celelalte componente
-> EPD Power furnizeaza tensiuni multiple, iar E-Paper Drive Circuit genereaza semnalele necesare pentru display-ul E-Paper
+> EPD Power furnizeaza tensiuni multiple, iar E-Paper Drive Circuit genereaza semnalele necesare pentru controlul display-ului E-Paper
  
 - Environmental Sensor BME688
   
@@ -77,6 +77,9 @@ Componentele principale ale circuitului sunt:
   
 > simplifica atasarea senzorilor si perifericelor la microcontroller, facand posibila conectarea mai multor dispozitive in lant, fara a fi nevoie de fire distincte pentru fiecare semnal; functioneaza pe baza protocolului I2C
 
+- Li-Po Battery Controller
+
+> gestioneaza incarcarea/descarcarea bateriei, regland constant tensiunea si curentul;  la alimentarea bateriei, previne supraincarcarea , iar la descarcare monitorizeaza tensiunea pentru a evita descarcarea profunda; este conectat la sursa de alimentare si la baterie
 
 ## Microcontroller - ESP32-C6
 Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, care este un modul preasamblat
@@ -102,7 +105,15 @@ Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, ca
 >> - **RTC_RST** pentru resetarea ceasului
 >> - **INT_RTC** destinat semnalelor de intrerupere de la modulul RTC, de exemplu in cazul iesirii din moduri de functionare (sleep), pentru executarea unor sarcini periodice, cum ar fi un refresh al display-ului etc.
 
+## Amplasarea componentelor
+
+La design-ul PCB-ului am tinut cont de cateva aspecte importante in ceea ce priveste amplasarea componentelor pe placuta. Astfel:
+
++ **Microcontroller-ul ESP32** se afla in marginea de sus a PCB-ului, cu antena inspre exterior si cu PCB-ul decupat in aceasta zona, pentru ca antena sa nu fie blocata si pentru a se evita orice interferente
++ **Conectorul USB** se afla in partea de jos a placutei, centrat astfel incat sa se alinieze cu orificiul din carcasa si sa permita conectarea mufei USB-C
++ **E-Paper Display Header** este pozitionat pe lateral, iar in dreptul sau exista un decupaj in PCB - acesta este spatiul in care se va introduce ribbon-ul display-ului nostru
 ## Errors
+
 La editarea PCB-ului in Fusion 360 am intampinat urmatoarele erori:
 <img width="600" alt="errors" src="https://github.com/user-attachments/assets/13f76178-e6c5-4af7-bdd7-0c7c476f3f09" />
 
