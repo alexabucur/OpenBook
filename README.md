@@ -1,4 +1,11 @@
 # OpenBook
+
+<img width="626" alt="All_Components" src="https://github.com/user-attachments/assets/30e295a9-2c2c-4bf0-a830-93c6fbc68ecf" />
+
+## Prezentare generala
+
+Proiectul a fost realizat in cadrul disciplinei _Testarea Sistemelor de Calcul_ si isi propune crearea unui model 3D detaliat pentru o tableta E-Book Reader. Am proiectat atat la nivel de circuit, cat si la nivel de design al produsului, folosind programul _Fusion360_ de la Autodesk.
+
 ## Block Diagram
 <img width="1000" alt="DiagramaBloc" src="https://github.com/user-attachments/assets/0147a616-2c00-4257-9101-920ae6a2e1f6" />
 
