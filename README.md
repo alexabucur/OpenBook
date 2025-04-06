@@ -105,13 +105,15 @@ Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, ca
 >> - **RTC_RST** pentru resetarea ceasului
 >> - **INT_RTC** destinat semnalelor de intrerupere de la modulul RTC, de exemplu in cazul iesirii din moduri de functionare (sleep), pentru executarea unor sarcini periodice, cum ar fi un refresh al display-ului etc.
 
-## Amplasarea componentelor
+## Amplasarea componentelor / Regului de design
 
 La design-ul PCB-ului am tinut cont de cateva aspecte importante in ceea ce priveste amplasarea componentelor pe placuta. Astfel:
 
 + **Microcontroller-ul ESP32** se afla in marginea de sus a PCB-ului, cu antena inspre exterior si cu PCB-ul decupat in aceasta zona, pentru ca antena sa nu fie blocata si pentru a se evita orice interferente
 + **Conectorul USB** se afla in partea de jos a placutei, centrat astfel incat sa se alinieze cu orificiul din carcasa si sa permita conectarea mufei USB-C
 + **E-Paper Display Header** este pozitionat pe lateral, iar in dreptul sau exista un decupaj in PCB - acesta este spatiul in care se va introduce ribbon-ul display-ului nostru
++  **Conectorul Qwiic** e amplasat pe marginea PCB-ului, si s-a lasat suficient spatiu in jurul sau, pentru a permite conectarea facila a unor cabluri suplimentare
++  PCB-ul este decupat intr-o zona suficient de mare in care sa incapa si bateria device-ului
 ## Errors
 
 La editarea PCB-ului in Fusion 360 am intampinat urmatoarele erori:
