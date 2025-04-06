@@ -40,54 +40,64 @@ Proiectul a fost realizat in cadrul disciplinei _Testarea Sistemelor de Calcul_ 
 ## Functionalitate hardware
 Componentele principale ale circuitului sunt:
 
-- USB C Connector + ESD Protection
++ USB C Connector + ESD Protection
   
  > destinat alimentarii E-Book, se conecteaza prin interfata USB
  
-- SD Card
++ SD Card
  
  > Secure Digital Card este folosit ca si mediu de stocare pentru cartile in format electronic; lucreaza la 3.3V si se conecteaza cu microcontrollerul prin interfata SPI
  
-- E-Paper Display, impreuna cu modulele aferente - E-Paper Drive Circuit, E-Paper Display Header, EPD Power
++ E-Paper Display, impreuna cu modulele aferente - E-Paper Drive Circuit, E-Paper Display Header, EPD Power
   
 > EPD Header se conecteaza prin interfata SPI la microcontroller, si realizeaza legatura intre celelalte componente
 > EPD Power furnizeaza tensiuni multiple, iar E-Paper Drive Circuit genereaza semnalele necesare pentru controlul display-ului E-Paper
+>
+> display-ul consuma cel mai mult la refresh, 30mA daca este alb-negru si pana la 60mA pentru display color, iar in modul inactiv, dupa ce a afisat imaginea, consumul este chiar zero
  
-- Environmental Sensor BME688
++ Environmental Sensor BME688
   
  > este un senzor de mediu ce poate masura temperatura, umiditatea, presiunea atmosferica si calitatea aerului, care functioneaza la 3.3V si se conecteaza prin interfata I2C
+>
+> are un consum redus, in standby sub 1uA, iar pentru masurare foloseste intre 1-2mA
 
-- RTC Module DS3231SN
++ RTC Module DS3231SN
   
  > este un modul Real-Time Clock care are rolul de a pastra data si ora curenta atunci cand microcontroller-ul este oprit; poate functiona pe baterie, si are un cristal de 32KHz integrat; se conecteaza la ESP32-C6 prin I2C, folosind pinii SCL si SDA
+>
+> consumul sau tipic variaza de la 150uA, atunci cand este alimentat de la sursa principala, si scade la 1uA la trecerea pe baterie
 
-- External NOR Flash 64MB
++ External NOR Flash 64MB
   
 > extinde memoria microcontroller-ului, aici se stocheaza date suplimentare, se poate face si o stocare temporara; foloseste interfata SPI
+> 
+> contributia sa la consumul energetic total este foarte mica; cel mai mult se consuma la stergerea din flash (in jur de 50mA), respectiv la scriere (30-50mA); in standby se consuma numai 10-20uA
 
--	LDO Voltage Regulator
++	LDO Voltage Regulator
   
-> este un stabilizator de tensiune liniar, care asigura tensiunea de iesire constanta la valoarea de 3.3V pentru microcontroller; are un consum energetic foarte mic, ceea ce il face ideal pentru dispozitive alimentate pe baza de baterie, precum cel de fata
+> este un stabilizator de tensiune liniar, care asigura tensiunea de iesire constanta la valoarea de 3.3V pentru microcontroller;
+>
+> are un consum energetic foarte mic (in jur de 8uA atunci cand este activ), ceea ce il face ideal pentru dispozitive alimentate pe baza de baterie, precum cel de fata
 
-- Voltage Supervisor
++ Voltage Supervisor
   
 > folosit pentru monitorizeaza nivelului tensiunii, si pentru a asigura ca sistemul nu poate porni atunci cand avem o tensiune instabila sau mult prea mica
 
-- Qwiic/Stemma QT
++ Qwiic/Stemma QT
   
 > simplifica atasarea senzorilor si perifericelor la microcontroller, facand posibila conectarea mai multor dispozitive in lant, fara a fi nevoie de fire distincte pentru fiecare semnal; functioneaza pe baza protocolului I2C
 
-- Li-Po Battery Controller
++ Li-Po Battery Controller
 
 > gestioneaza incarcarea/descarcarea bateriei, regland constant tensiunea si curentul;  la alimentarea bateriei, previne supraincarcarea , iar la descarcare monitorizeaza tensiunea pentru a evita descarcarea profunda; este conectat la sursa de alimentare si la baterie
 
 ## Microcontroller - ESP32-C6
-Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, care este un modul preasamblat
-> Placa ESP-WROOM-32 dispune de o varietate de interfete pentru conectarea cu alte componente si senzori, inclusiv pini de I/O, SPI, I2C si UART. Aceastea faciliteaza integrarea si extind gama de aplicatii posibile. Placa foloseste WiFi 6 2.4 GHz, are integrat Bluetooth 5 si antena.
+Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, care este un modul preasamblat, si principalul consumator energetic al circuitului. Consumul mediu se situeaza undeva intre 100uA si 2mA, avand in vedere ca in modul _Activ_ se consuma in jur de 100-120mA, in _Idle_ 10-15mA iar atunci cand se afla in _Deep Sleep_ doar 10-20uA. In mod evident, consumul depinde cel mai mult de durata sesiunilor active.
+> Placa ESP-WROOM-32 dispune de o varietate de interfete pentru conectarea altor componente si senzori, inclusiv pini de I/O, SPI, I2C si UART. Aceastea faciliteaza integrarea si extind gama de aplicatii posibile. Placa foloseste WiFi 6 2.4 GHz, are integrat Bluetooth 5 si antena.
 >> <img width="600" alt="ESP32_C6" src="https://github.com/user-attachments/assets/733b906e-1500-4ca2-ba0b-447412d6c4e2" />
 > ESP32-C6 se leaga de cele mai importante module ale circuitului prin intermediul pinilor sai:
 > - **Alimentare si reset**
->> **3V3** aigura alimentrea modulului, **GND** legatura la masa, **EN** trebuie sa fie pe pozitia _HIGH_ pentru ca modulul sa functioneze (EN va fi controlat de catre butonul RESET)
+>> **3V3** asigura alimentrea modulului, **GND** legatura la masa, **EN** trebuie sa fie pe pozitia _HIGH_ pentru ca modulul sa functioneze (EN va fi controlat de catre butonul RESET)
 > - **USB C Connector**
 >> deoarece ESP32-C6 are USB nativ, conexiunea se realizeaza direct prin liniile de date **USB_D+** si **USB_D-**, la pinii **GPIO13** si **GPIO14** ai modulului; nu mai este deci nevoie de un convertor serial extern
 > - **SD Card**
