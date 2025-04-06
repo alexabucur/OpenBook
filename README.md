@@ -115,7 +115,7 @@ Intreg circuitul a fost conceput in jurul microcontrollerului ESP32-C6-WROOM, ca
 >> - **RTC_RST** pentru resetarea ceasului
 >> - **INT_RTC** destinat semnalelor de intrerupere de la modulul RTC, de exemplu in cazul iesirii din moduri de functionare (sleep), pentru executarea unor sarcini periodice, cum ar fi un refresh al display-ului etc.
 
-## Amplasarea componentelor / Regului de design
+## Amplasarea componentelor / Reguli de design
 
 La design-ul PCB-ului am tinut cont de cateva aspecte importante in ceea ce priveste amplasarea componentelor pe placuta. Astfel:
 
