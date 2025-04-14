@@ -1,6 +1,7 @@
 # OpenBook
 
-<img width="626" alt="All_Components" src="https://github.com/user-attachments/assets/30e295a9-2c2c-4bf0-a830-93c6fbc68ecf" />
+<img width="563" alt="image" src="https://github.com/user-attachments/assets/102450b4-6cf1-49df-a531-43487337a72f" />
+
 
 ## Prezentare generala
 
