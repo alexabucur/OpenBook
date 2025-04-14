@@ -8,7 +8,8 @@
 Proiectul a fost realizat in cadrul disciplinei _Testarea Sistemelor de Calcul_ si isi propune crearea unui model 3D detaliat pentru o tableta E-Book Reader. Am proiectat atat la nivel de circuit, cat si la nivel de design al produsului, folosind programul _Fusion360_ de la Autodesk.
 
 ## Block Diagram
-<img width="1000" alt="DiagramaBloc" src="https://github.com/user-attachments/assets/0147a616-2c00-4257-9101-920ae6a2e1f6" />
+<img width="482" alt="Screenshot 2025-04-14 210347" src="https://github.com/user-attachments/assets/94e36bda-335d-41fa-b137-9727f6364365" />
+
 
 ## Bill of Materials
 | Device | Description | Datasheet | Price per Unit | Link |
